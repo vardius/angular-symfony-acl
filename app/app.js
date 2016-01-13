@@ -2,18 +2,11 @@
     'use strict';
 
     angular
-        .module('tacticApp', [
+        .module('app', [
             'route-provider',
             'state-provider',
             'symfony-acl',
         ])
-        .constant("CONFIG", {
-            url: "http://api.tactic.luceytechnology.com",
-            domain: "http://dashboard.tactic.dev",
-            clientId: '1_3p6czexsg8isgsogk4w8c448oscgsw80sk8scwo0kog0wwwoc0',
-            clientSecret: '2hbdh0s6wvc4s04c4sogw0040swws0ck48k0w00kso8kcwwsg4',
-            port: "80"
-        })
         .config(['AccessServiceProvider', config])
     ;
 
