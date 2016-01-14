@@ -51,6 +51,17 @@
         service.getUserAccessLevel = getUserAccessLevel;
         service.getMaxRole = getMaxRole;
         service.getRoleAccessLevel = getRoleAccessLevel;
+        service.compareRoleArrays = compareRoleArrays;
+
+        function compareRoleArrays(roles, userRoles) {
+            for (var i = 0; i < userRoles.length; i++) {
+                for (var j = 0; j < roles.length; j++) {
+                    if (userRoles[i] === roles[j]) return true;
+                }
+            }
+
+            return false
+        }
 
         function setUser() {
             window[config.storage].setItem(config.storageKey, JSON.stringify(data));

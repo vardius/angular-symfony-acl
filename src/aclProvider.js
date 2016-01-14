@@ -16,35 +16,47 @@
 
     function run($rootScope, AccessService) {
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
-            if (next.requireLogin) {
-                var userAccessLevel = 0;
-                var roleAccessLevel = 1;
-
+            if (next.hasOwnProperty('requireLogin') && next.requireLogin) {
                 var currentUser = AccessService.getUser();
-                if (currentUser) {
-                    userAccessLevel = AccessService.getUserAccessLevel(currentUser);
-                    roleAccessLevel = AccessService.getRoleAccessLevel(next.role);
-                }
-
-                if (roleAccessLevel < userAccessLevel) {
-                    alert("You need to be authenticated to see this page!");
+                if (currentUser && currentUser.hasOwnProperty('roles')) {
+                    if (next.hasOwnProperty('roles')) {
+                        if (typeof next.roles === 'string') {
+                            if (currentUser.roles.indexOf(next.roles) == -1) {
+                                alert("You dont have access to see this page!");
+                                event.preventDefault();
+                            }
+                        } else if (next.roles instanceof Array) {
+                            if (!AccessService.compareRoleArrays(currentUser.roles, next.roles)) {
+                                alert("You dont have access to see this page!");
+                                event.preventDefault();
+                            }
+                        }
+                    }
+                } else {
+                    alert("You dont have access to see this page!");
                     event.preventDefault();
                 }
             }
         });
         $rootScope.$on("$stateChangeStart", function (event, toState, toParams, fromState, fromParams) {
-            if (toState.requireLogin) {
-                var userAccessLevel = 0;
-                var roleAccessLevel = 1;
-
+            if (toState.hasOwnProperty('requireLogin') && toState.requireLogin) {
                 var currentUser = AccessService.getUser();
-                if (currentUser) {
-                    userAccessLevel = AccessService.getUserAccessLevel(currentUser);
-                    roleAccessLevel = AccessService.getRoleAccessLevel(toState.role);
-                }
-
-                if (roleAccessLevel < userAccessLevel) {
-                    alert("You need to be authenticated to see this page!");
+                if (currentUser && currentUser.hasOwnProperty('roles')) {
+                    if (toState.hasOwnProperty('roles')) {
+                        if (typeof toState.roles === 'string') {
+                            if (currentUser.roles.indexOf(toState.roles) == -1) {
+                                alert("You dont have access to see this page!");
+                                event.preventDefault();
+                            }
+                        } else if (toState.roles instanceof Array) {
+                            if (!AccessService.compareRoleArrays(currentUser.roles, toState.roles)) {
+                                alert("You dont have access to see this page!");
+                                event.preventDefault();
+                            }
+                        }
+                    }
+                } else {
+                    alert("You dont have access to see this page!");
                     event.preventDefault();
                 }
             }
