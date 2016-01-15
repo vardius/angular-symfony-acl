@@ -26,17 +26,19 @@
                     event.preventDefault();
                 }
 
-                if (next.hasOwnProperty('roles') && currentUser.hasOwnProperty('roles')) {
-                    if (typeof next.roles === 'string' && currentUser.roles.indexOf(next.roles) == -1) {
-                        alert("You dont have access to see this page!");
-                        event.preventDefault();
-                    } else if (next.roles instanceof Array && !AccessService.compareRoleArrays(currentUser.roles, next.roles)) {
+                if (next.hasOwnProperty('roles')) {
+                    if (currentUser.hasOwnProperty('roles')) {
+                        if (typeof next.roles === 'string' && currentUser.roles.indexOf(next.roles) == -1) {
+                            alert("You dont have access to see this page!");
+                            event.preventDefault();
+                        } else if (next.roles instanceof Array && !AccessService.compareRoleArrays(currentUser.roles, next.roles)) {
+                            alert("You dont have access to see this page!");
+                            event.preventDefault();
+                        }
+                    } else {
                         alert("You dont have access to see this page!");
                         event.preventDefault();
                     }
-                } else {
-                    alert("You dont have access to see this page!");
-                    event.preventDefault();
                 }
             }
         });
@@ -48,17 +50,19 @@
                     event.preventDefault();
                 }
 
-                if (toState.hasOwnProperty('roles') && currentUser.hasOwnProperty('roles')) {
-                    if (typeof toState.roles === 'string' && currentUser.roles.indexOf(toState.roles) == -1) {
-                        alert("You dont have access to see this page!");
-                        event.preventDefault();
-                    } else if (toState.roles instanceof Array && !AccessService.compareRoleArrays(currentUser.roles, toState.roles)) {
+                if (toState.hasOwnProperty('roles')) {
+                    if (currentUser.hasOwnProperty('roles')) {
+                        if (typeof toState.roles === 'string' && currentUser.roles.indexOf(toState.roles) == -1) {
+                            alert("You dont have access to see this page!");
+                            event.preventDefault();
+                        } else if (toState.roles instanceof Array && !AccessService.compareRoleArrays(currentUser.roles, toState.roles)) {
+                            alert("You dont have access to see this page!");
+                            event.preventDefault();
+                        }
+                    } else {
                         alert("You dont have access to see this page!");
                         event.preventDefault();
                     }
-                } else {
-                    alert("You dont have access to see this page!");
-                    event.preventDefault();
                 }
             }
         });
