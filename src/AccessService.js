@@ -88,15 +88,10 @@
         }
 
         function getMaxRole(user) {
-            if (user) {
-                var roles = [1];
-                for (var key in user.roles) {
-                    if (user.roles.hasOwnProperty(key)) {
-                        roles.push(getValue(user.roles[key]));
-                    }
-                }
+            var accessLevel = getUserAccessLevel(user);
 
-                return config.rolesHierarchy[Math.max.apply(null, roles)];
+            if (accessLevel > 0) {
+                return config.rolesHierarchy[accessLevel];
             }
 
             return '';
