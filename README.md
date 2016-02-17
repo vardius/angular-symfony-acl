@@ -70,14 +70,37 @@ Example usage using states:
                     }
                 }
             })
+            .state('secured', {
+                url: "/secured",
+                requireLogin: true,
+                views: {
+                    "content": {
+                        templateUrl: "/src/views/secured.view.html",
+                        controller: 'SecuredController',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
             .state('admin', {
                 url: "/admin",
                 requireLogin: true,
-                role: 'ROLE_ADMIN',
+                roles: ['ROLE_ADMIN', 'ROLE_SUPER_ADMIN'],
                 views: {
                     "content": {
                         templateUrl: "/src/views/admin.view.html",
                         controller: 'AdminController',
+                        controllerAs: 'vm'
+                    }
+                }
+            })
+            .state('superadmin', {
+                url: "/super-admin",
+                requireLogin: true,
+                roles: 'ROLE_SUPER_ADMIN',
+                views: {
+                    "content": {
+                        templateUrl: "/src/views/superadmin.view.html",
+                        controller: 'SuperAdminController',
                         controllerAs: 'vm'
                     }
                 }
