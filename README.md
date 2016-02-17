@@ -13,6 +13,12 @@ Install with bower:
 $ bower install symfony-acl --save
 ```
 
+Install with npm:
+
+```bash
+$ npm install symfony-acl
+```
+
 Load the `symfony-acl` module in your app.
 
 ```javascript
