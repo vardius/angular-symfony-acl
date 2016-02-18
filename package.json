@@ -8,6 +8,8 @@
     "name": "Rafał Lorenz",
     "email": "vardius@gmail.com"
   },
+  "readmeFilename": "README.md",
+  "main": "dist/symfony-acl.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/Vardius/symfony-acl.git"
