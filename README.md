@@ -1,4 +1,4 @@
-symfony-acl
+angular-symfony-acl
 ======================
 
 ACL component for Angular Js based on symfony2 user roles
@@ -10,13 +10,13 @@ For usage and examples go to app directory
 Install with bower:
 
 ```bash
-$ bower install symfony-acl --save
+$ bower install angular-symfony-acl --save
 ```
 
 Install with npm:
 
 ```bash
-$ npm install symfony-acl
+$ npm install angular-symfony-acl
 ```
 
 Load the `symfony-acl` module in your app.
@@ -30,7 +30,7 @@ angular.module('app', ['symfony-acl']);
 ```javascript
     angular
         .module('app', [
-            'symfony-acl',
+            'vSymfonyACL',
         ])
         .config(['AccessServiceProvider', config])
     ;
