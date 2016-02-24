@@ -20,7 +20,7 @@
 function symfonyAcl(angular) {
     'use strict';
 
-    var moduleName = 'symfony-acl';
+    var moduleName = 'vSymfonyACL';
 
     angular
         .module(moduleName, [])

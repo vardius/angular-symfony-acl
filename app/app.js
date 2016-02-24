@@ -5,7 +5,7 @@
         .module('app', [
             'route-provider',
             'state-provider',
-            'symfony-acl',
+            'vSymfonyACL'
         ])
         .config(['AccessServiceProvider', config])
     ;

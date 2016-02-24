@@ -10,7 +10,7 @@
     'use strict';
 
     angular
-        .module('symfony-acl')
+        .module('vSymfonyACL')
         .provider('AccessService', AccessService);
 
     AccessService.$inject = [];

@@ -1,21 +1,21 @@
 {
-  "name": "symfony-acl",
+  "name": "angular-symfony-acl",
   "description": "ACL component for Angular Js based on symfony2 user roles",
   "private": false,
   "version": "0.1.3",
-  "homepage": "https://github.com/Vardius/symfony-acl",
+  "homepage": "https://github.com/Vardius/angular-symfony-acl",
   "author": {
     "name": "Rafał Lorenz",
     "email": "vardius@gmail.com"
   },
   "readmeFilename": "README.md",
-  "main": "dist/symfony-acl.js",
+  "main": "dist/angular-symfony-acl.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Vardius/symfony-acl.git"
+    "url": "git://github.com/Vardius/angular-symfony-acl.git"
   },
   "bugs": {
-    "url": "https://github.com/Vardius/symfony-acl/issues"
+    "url": "https://github.com/Vardius/angular-symfony-acl/issues"
   },
   "scripts": {
     "test": "grunt test-phantom",
