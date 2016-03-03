@@ -63,7 +63,7 @@
             return false
         }
 
-        function setUser() {
+        function setUser(data) {
             window[config.storage].setItem(config.storageKey, JSON.stringify(data));
         }
 
