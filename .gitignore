@@ -1,2 +1,5 @@
-vendor/*
 .idea
+/node_modules
+/typings
+/coverage
+/reports

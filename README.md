@@ -22,16 +22,14 @@ $ npm install angular-symfony-acl
 Load the `symfony-acl` module in your app.
 
 ```javascript
-angular.module('app', ['symfony-acl']);
+angular.module('app', ['vSymfonyACL']);
 ```
 
 ## Configure
 
 ```javascript
     angular
-        .module('app', [
-            'vSymfonyACL',
-        ])
+        .module('app')
         .config(['AccessServiceProvider', config])
     ;
         

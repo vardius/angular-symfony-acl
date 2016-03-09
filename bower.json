@@ -4,9 +4,9 @@
   "authors": [
     "Rafał Lorenz <vardius@gmail.com>"
   ],
-  "version": "0.2.0",
+  "version": "1.0.0",
   "main": [
-    "dist/angular-symfony-acl.js"
+    "dist/angular-symfony-acl.min.js"
   ],
   "ignore": [
     "app",
@@ -14,10 +14,5 @@
     "test",
     "karma.conf.js"
   ],
-  "dependencies": {
-    "angular": "1.0 - 1.3"
-  },
-  "devDependencies": {
-    "angular-mocks": "1.3.2"
-  }
+  "dependencies": {}
 }
