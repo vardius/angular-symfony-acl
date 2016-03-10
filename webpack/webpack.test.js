@@ -11,6 +11,9 @@ module.exports = {
         root: __dirname,
         extensions: ['', '.js', '.json']
     },
+    externals: {
+        'angular': 'angular'
+    },
     resolveLoader: {
         modulesDirectories: ["node_modules"]
     },
