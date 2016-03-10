@@ -14,21 +14,21 @@ export function run($rootScope, AccessService) {
         if (next.hasOwnProperty('requireLogin') && next.requireLogin) {
             var currentUser = AccessService.getUser();
             if (!currentUser) {
-                alert("You dont have access to see this page!");
+                $rootScope.$emit('vsymfonyacl:error', currentUser);
                 event.preventDefault();
             }
 
             if (next.hasOwnProperty('roles')) {
                 if (currentUser.hasOwnProperty('roles')) {
                     if (typeof next.roles === 'string' && currentUser.roles.indexOf(next.roles) == -1) {
-                        alert("You dont have access to see this page!");
+                        $rootScope.$emit('vsymfonyacl:error', currentUser);
                         event.preventDefault();
                     } else if (next.roles instanceof Array && !AccessService.compareRoleArrays(currentUser.roles, next.roles)) {
-                        alert("You dont have access to see this page!");
+                        $rootScope.$emit('vsymfonyacl:error', currentUser);
                         event.preventDefault();
                     }
                 } else {
-                    alert("You dont have access to see this page!");
+                    $rootScope.$emit('vsymfonyacl:error', currentUser);
                     event.preventDefault();
                 }
             }
@@ -39,21 +39,21 @@ export function run($rootScope, AccessService) {
         if (toState.hasOwnProperty('requireLogin') && toState.requireLogin) {
             var currentUser = AccessService.getUser();
             if (!currentUser) {
-                alert("You dont have access to see this page!");
+                $rootScope.$emit('vsymfonyacl:error', currentUser);
                 event.preventDefault();
             }
 
             if (toState.hasOwnProperty('roles')) {
                 if (currentUser.hasOwnProperty('roles')) {
                     if (typeof toState.roles === 'string' && currentUser.roles.indexOf(toState.roles) == -1) {
-                        alert("You dont have access to see this page!");
+                        $rootScope.$emit('vsymfonyacl:error', currentUser);
                         event.preventDefault();
                     } else if (toState.roles instanceof Array && !AccessService.compareRoleArrays(currentUser.roles, toState.roles)) {
-                        alert("You dont have access to see this page!");
+                        $rootScope.$emit('vsymfonyacl:error', currentUser);
                         event.preventDefault();
                     }
                 } else {
-                    alert("You dont have access to see this page!");
+                    $rootScope.$emit('vsymfonyacl:error', currentUser);
                     event.preventDefault();
                 }
             }

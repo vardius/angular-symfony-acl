@@ -114,3 +114,14 @@ Example usage using states:
 
 })();
 ```
+
+## Catch access errors
+
+```javascript
+angular.module('myApp', ['vSymfonyACL'])
+  .run(['$rootScope', '$window', function($rootScope, $window) {
+    $rootScope.$on('vsymfonyacl:error', function(event, user) {
+      return $window.location.href = '/login';
+    });
+  }]);
+```
