@@ -2,9 +2,9 @@ var loaders = require("./loaders");
 var webpack = require('webpack');
 
 module.exports = {
-    entry: './tests/app.js',
+    entry: './src/app.js',
     output: {
-        filename: 'angular-repository.js',
+        filename: 'angular-symfony-acl.js',
         path: 'tmp'
     },
     resolve: {
