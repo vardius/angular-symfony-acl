@@ -2,7 +2,7 @@
   "name": "angular-symfony-acl",
   "description": "ACL component for Angular Js based on symfony2 user roles",
   "private": false,
-  "version": "1.0.5",
+  "version": "1.0.6",
   "homepage": "https://github.com/Vardius/angular-symfony-acl",
   "author": {
     "name": "Rafał Lorenz",
