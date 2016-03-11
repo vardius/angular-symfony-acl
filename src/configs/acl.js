@@ -16,7 +16,11 @@ export function run($rootScope, AccessService) {
             if (!currentUser) {
                 $rootScope.$emit('vsymfonyacl:error', currentUser);
                 event.preventDefault();
-            } else if (next.hasOwnProperty('roles')) {
+
+                return;
+            }
+
+            if (next.hasOwnProperty('roles')) {
                 if (currentUser.hasOwnProperty('roles')) {
                     if (typeof next.roles === 'string' && currentUser.roles.indexOf(next.roles) == -1) {
                         $rootScope.$emit('vsymfonyacl:error', currentUser);
@@ -39,7 +43,11 @@ export function run($rootScope, AccessService) {
             if (!currentUser) {
                 $rootScope.$emit('vsymfonyacl:error', currentUser);
                 event.preventDefault();
-            } else if (toState.hasOwnProperty('roles')) {
+
+                return;
+            }
+
+            if (toState.hasOwnProperty('roles')) {
                 if (currentUser.hasOwnProperty('roles')) {
                     if (typeof toState.roles === 'string' && currentUser.roles.indexOf(toState.roles) == -1) {
                         $rootScope.$emit('vsymfonyacl:error', currentUser);
