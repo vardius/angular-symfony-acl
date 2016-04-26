@@ -39,7 +39,7 @@ export class AccessService {
             var roles = [1];
             for (var key in user.roles) {
                 if (user.roles.hasOwnProperty(key)) {
-                    roles.push(getRoleAccessLevel(user.roles[key]));
+                    roles.push(this.getRoleAccessLevel(user.roles[key]));
                 }
             }
 
@@ -50,7 +50,7 @@ export class AccessService {
     }
 
     getMaxRole(user) {
-        var accessLevel = getUserAccessLevel(user);
+        var accessLevel = this.getUserAccessLevel(user);
 
         if (accessLevel > 0) {
             return this.config.rolesHierarchy[accessLevel];
